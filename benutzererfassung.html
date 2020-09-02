@@ -1,0 +1,51 @@
+<style type="text/css">
+	* {
+	  margin: 0;
+	  padding: 0;
+	  font-family: sans-serif;
+	  box-sizing: border-box;
+
+	}
+
+	.wrapper{
+		margin: 7px;
+	}
+
+	.smallInput{
+		width: 100px;
+	}
+	.defaultInput{
+		width: 200px;
+	}
+	.largeInput{
+		width: 300px;
+	}
+
+</style>
+
+<div class="wrapper">
+	<h1>Benutzererfassung</h1>
+
+	<form style="display: flex; flex-direction: column; width: 405px;">
+		<div>
+			<input type="text" name="vorname" placeholder="Vorname" required class="defaultInput">
+			<input type="text" name="nachname" placeholder="Nachname" required class="defaultInput">
+		</div>
+		<div>
+			<input type="text" name="strasse" placeholder="Strasse" required class="largeInput">
+			<input type="number" name="nr" placeholder="Nr." class="smallInput">
+		</div>
+		<div>
+			<input type="number" name="plz" placeholder="PLZ" pattern="\d{4}" required class="smallInput">
+			<input type="text" name="ort" placeholder="Ort" required class="largeInput">
+		</div>
+		<div>
+			<input type="number" name="alter" placeholder="Alter" class="smallInput">
+			<input type="email" name="email" placeholder="Email-Adresse" required class="largeInput">
+		</div>
+		<div style="text-align: right;">
+			<button>Verwerfen</button>
+			<input type="submit" value="Senden">
+		</div>
+	</form>
+</div>
