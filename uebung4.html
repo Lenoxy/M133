@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 4</title>
+</head>
+<body id="body">
+<label for="schrauben">Wieviele Schrauben?:</label><input id="schrauben" type="number"/><br>
+<label for="muttern">Wieviele Muttern?:</label><input id="muttern" type="number"/><br>
+<label for="unterlagsscheiben">Wieviele Unterlagsscheiben?:</label><input id="unterlagsscheiben" type="number"/><br>
+<button id="absenden">Absenden</button>
+<button id="formularLoeschen">Formular löschen</button>
+
+<p id="result"></p>
+
+
+    <script>
+        const schrauben = document.querySelector('#schrauben');
+        const muttern = document.querySelector('#muttern');
+        const unterlagsscheibe = document.querySelector('#unterlagsscheiben');
+        const result = document.querySelector('#result');
+
+
+        document.querySelector('#absenden').onclick = ()=>{
+            let resultRp = 0;
+            resultRp += schrauben.value * 20;
+            resultRp += muttern.value * 10;
+            resultRp += unterlagsscheibe.value * 5;
+
+            result.innerHTML = resultRp/100 + ' Fr.';
+        }
+
+        document.querySelector('#formularLoeschen').onclick = ()=> {
+            schrauben.value = '';
+            muttern.value = '';
+            unterlagsscheibe.value = '';
+            result.innerHTML = '';
+        }
+    </script>
+</body>
+</html>
