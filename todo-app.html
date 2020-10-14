@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+</head>
+
+<script>
+
+    let name = [];
+    let checked = [];
+
+    function onSend() {
+        name.push(document.querySelector('#input').value);
+        checked.push(false);
+        document.querySelector('#input').value = '';
+
+        document.querySelector('#list').innerHTML = '';
+        for (var i = 0; i < name.length; i++) {
+            console.log(checked[i])
+            prepareAndInjectElement(i, name[i], checked[i]);
+        }
+    }
+
+    function prepareAndInjectElement(index, name, isChecked) {
+        let root = document.querySelector('#list')
+        let outerDiv = document.createElement("div");
+        let checkbox = document.createElement("input");
+        let label = document.createElement('label')
+
+
+        if (checked[index]) {
+            label.style = 'text-decoration: line-through';
+        }
+        label.innerText = name;
+        label.htmlFor = index;
+
+
+        checkbox.type = 'checkbox';
+        checkbox.checked = isChecked;
+        checkbox.addEventListener('change', () => updateChecked(label, index));
+        checkbox.id = index;
+
+
+        outerDiv.appendChild(checkbox);
+        outerDiv.appendChild(label);
+
+        root.appendChild(outerDiv);
+    }
+
+    function updateChecked(elToStyle, index) {
+        checked[index] = !checked[index]
+        elToStyle.style = checked[index] ? 'text-decoration: line-through' : '';
+    }
+
+</script>
+
+<body>
+
+<input type="text" placeholder="insert todo item" id="input">
+<button onclick="onSend()">Add</button>
+<div id="list"></div>
+
+</body>
+</html>
